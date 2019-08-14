@@ -12,7 +12,7 @@ namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
     {
-        //private List<FileInfo> mru;
+        private string currentFile;
         public Form1()
         {
             InitializeComponent();
@@ -23,24 +23,44 @@ namespace WindowsFormsApp1
             if(textBox1.Text != string.Empty)
             {
                 if (MessageBox.Show("Erase file?", "New", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    currentFile = "";
                     textBox1.Text = string.Empty;
+                }  
             }
         }
 
         private void OpenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            if (currentFile == "")
             {
-                using var file = new StreamReader(openFileDialog1.FileName, Encoding.Default);
+                if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    currentFile = openFileDialog1.FileName;
+                    using var file = new StreamReader(openFileDialog1.FileName, Encoding.Default);
+                    textBox1.Text = file.ReadToEnd();
+                }
+            }
+            else
+            {
+                using var file = new StreamReader(currentFile, Encoding.Default);
                 textBox1.Text = file.ReadToEnd();
             }
         }
 
         private void SaveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(saveFileDialog1.ShowDialog() == DialogResult.OK)
+            if (currentFile == "")
             {
-                using var file = new StreamWriter(saveFileDialog1.FileName, false, Encoding.Default);
+                if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    using var file = new StreamWriter(saveFileDialog1.FileName, false, Encoding.Default);
+                    file.Write(textBox1.Text);
+                }
+            }
+            else
+            {
+                using var file = new StreamWriter(currentFile, false, Encoding.Default);
                 file.Write(textBox1.Text);
             }
         }
@@ -61,35 +81,31 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void FindTextToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            new FindText(this).Show();
-        }
+        private void FindTextToolStripMenuItem_Click(object sender, EventArgs e) => new FindText(this).Show();
 
-        private void ReplaceTextToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            new ReplaceText(this).ShowDialog();
-        }
+        private void ReplaceTextToolStripMenuItem_Click(object sender, EventArgs e) => new ReplaceText(this).ShowDialog();
 
-        private void InsertDateTimeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            textBox1.Text += $" {DateTime.Now}";
-        }
+        private void InsertDateTimeToolStripMenuItem_Click(object sender, EventArgs e) => textBox1.Text += $" {DateTime.Now}";
 
-        private void CopyToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            textBox1.Copy();
-        }
+        private void CopyToolStripMenuItem_Click(object sender, EventArgs e) => textBox1.Copy();
 
-        private void PasteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            textBox1.Paste();
-        }
+        private void PasteToolStripMenuItem_Click(object sender, EventArgs e) => textBox1.Paste();
 
         private void UndoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (textBox1.CanUndo)
                 textBox1.Undo();
+        }
+
+        private void Form1_Load(object sender, EventArgs e) => currentFile = "";
+
+        private void SaveAsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                using var file = new StreamWriter(saveFileDialog1.FileName, false, Encoding.Default);
+                file.Write(textBox1.Text);
+            }
         }
     }
 }

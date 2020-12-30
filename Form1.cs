@@ -107,5 +107,13 @@ namespace WindowsFormsApp1
                 file.Write(textBox1.Text);
             }
         }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var about = new About();
+            about.ShowDialog();
+        }
+
+        private void closeToolStripMenuItem_Click(object sender, EventArgs e) => Close();
     }
 }

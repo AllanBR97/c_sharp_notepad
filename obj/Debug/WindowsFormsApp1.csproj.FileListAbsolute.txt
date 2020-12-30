@@ -10,3 +10,16 @@ C:\Users\Allan\source\repos\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
 C:\Users\Allan\source\repos\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
 C:\Users\Allan\source\repos\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FindText.resources
 C:\Users\Allan\source\repos\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.ReplaceText.resources
+C:\Users\allan\Source\Repos\c_sharp_notepad\bin\Debug\WindowsFormsApp1.exe.config
+C:\Users\allan\Source\Repos\c_sharp_notepad\bin\Debug\WindowsFormsApp1.exe
+C:\Users\allan\Source\Repos\c_sharp_notepad\bin\Debug\WindowsFormsApp1.pdb
+C:\Users\allan\Source\Repos\c_sharp_notepad\obj\Debug\WindowsFormsApp1.csprojAssemblyReference.cache
+C:\Users\allan\Source\Repos\c_sharp_notepad\obj\Debug\WindowsFormsApp1.FindText.resources
+C:\Users\allan\Source\Repos\c_sharp_notepad\obj\Debug\WindowsFormsApp1.Form1.resources
+C:\Users\allan\Source\Repos\c_sharp_notepad\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+C:\Users\allan\Source\Repos\c_sharp_notepad\obj\Debug\WindowsFormsApp1.ReplaceText.resources
+C:\Users\allan\Source\Repos\c_sharp_notepad\obj\Debug\WindowsFormsApp1.csproj.GenerateResource.cache
+C:\Users\allan\Source\Repos\c_sharp_notepad\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
+C:\Users\allan\Source\Repos\c_sharp_notepad\obj\Debug\WindowsFormsApp1.exe
+C:\Users\allan\Source\Repos\c_sharp_notepad\obj\Debug\WindowsFormsApp1.pdb
+C:\Users\allan\source\repos\c_sharp_notepad\obj\Debug\WindowsFormsApp1.About.resources
